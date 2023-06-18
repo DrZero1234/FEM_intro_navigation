@@ -31,15 +31,18 @@ header {
 nav {
     display: flex;
     padding: 2em;
+    gap: 1rem;
     align-items: center;
-    gap: 2rem;
     color: var(--font-grey);
 }
 
-nav ul {
+
+.header-links {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
+    width: 100%;
     gap: 2rem;
 }
 
@@ -48,26 +51,26 @@ nav a {
     text-decoration: none;
 }
 
-nav li:hover {
-    cursor: pointer;
+.header-dropdown {
+    white-space: nowrap;
+}
+
+nav a:hover,
+.header-dropdown:hover {
     color: var(--site-black);
+    cursor: pointer;
 }
 
-li {
-    list-style: none;
-}
-
-.header-navs {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.header-right {
+.header-right,
+.header-left {
     display: flex;
     align-items: center;
     gap: 2rem;
+}
 
+.header-left:nth-child(1),
+.header-left:nth-child(2) {
+    gap: 3rem;
 }
 
 .dropdown-menu {
@@ -79,14 +82,11 @@ li {
     line-height: 50px;
 }
 
-.dropdown-menu > li {
+.dropdown-item {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .8rem;
 }
-
-
-
 
 
 .visible {
@@ -94,6 +94,70 @@ li {
     position: absolute;
     transform-origin: top;
     max-height: 250px;
+}
+
+.hamburger-menu {
+    background-color: inherit;
+    display: none;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.burger {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.burger,
+.burger:before,
+.burger:after {
+    padding: 0;
+    background-color: var(--font-grey);
+    width: 80%;
+    height: 8px;
+    transition: margin .1s .2s, transform .2s;
+}
+
+.burger:before,
+.burger:after {
+    margin: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.burger:before {
+    margin-top: -12px;
+}
+
+.burger:after {
+    margin-top: 12px;
+}
+
+.open .burger {
+    transform: rotate(45deg);
+}
+
+.open .burger,
+.open .burger:before,
+.open .burger:after {
+    transition: margin .2s, transform .1s .2s;
+}
+
+.open .burger:before,
+.open .burger:after {
+    margin-top: 0;
+}
+
+.open .burger:after {
+    transform: rotate(-90deg)
 }
 
 
@@ -141,9 +205,22 @@ li {
     padding: 2em;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 55rem) {
     .big-btn {
         border-radius: 100vw;
         padding: 1rem 3rem;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .header-links {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
     }
 }
