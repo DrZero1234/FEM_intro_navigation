@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->  
+  <title>Dropdown navigation</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div id="sidenav-overlay"></div>
   <header>
     <nav>
       <div class="header-brand">
@@ -22,11 +20,13 @@
               fill="#151515" />
           </svg>
         </div>
-        <div class="header-links">
-          <div class="header-left">
+        <div class="header-links" data-visible="false">
+          <ul class="header-left">
             <div class="dropdown-container" id="features-container" data-header-space = "large">
               <div class="header-dropdown inactive" id="features-dropdown">
-                <span class="dropdown-label">Features</span> <img id="arrow-img" />
+                <li><a class="dropdown-label" href="#">Features</a> 
+                  <img id="arrow-img" /> 
+                </li>
               </div>
               <ul class="dropdown-menu">
                 <li class="dropdown-item">
@@ -65,7 +65,7 @@
             </div>
             <div class="dropdown-container" id="company-container" data-header-space = "large">
               <div class="header-dropdown inactive" id="company-dropdown">
-                <span class="dropdown-label">Company</span> <img id="arrow-img" />
+                <li><a class="dropdown-label" href="#">Company</a> <img id="arrow-img" /></li>
               </div>
               <ul class="dropdown-menu">
                 <li class="dropdown-item">
@@ -79,9 +79,9 @@
                 </li>
               </ul>
             </div>
-            <a href="#">Careers</a>
-            <a href="#">About</a>
-          </div>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
 
           <div class="header-right">
             <a href="#">Login</a>
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <div class="hamburger-menu" id="hamburger-wrapper">
+        <div class="hamburger-menu" id="hamburger-wrapper" aria-controls="header-links" aria-expanded="false" >
           <p class="burger"></p>
         </div>
       </nav>
