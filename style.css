@@ -20,7 +20,7 @@
 
 body {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     background-color: var(--site-white);
     overflow-x: hidden;
 }
@@ -118,7 +118,7 @@ nav a:hover,
 .big-btn {
     border-radius: 1.2rem;
     font-family: "Hanken Grotesk";
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .big-btn:hover {
@@ -152,11 +152,14 @@ nav a:hover,
     outline: 1px solid black;
 }
 
+
+
 .main-container {
     display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    grid-template-rows: minmax(0px,1fr);
-    padding: 2em;
+    place-content: center;
+    grid-template-columns: repeat(2,1fr);
+    max-height: 1440px;
+    padding: 1em;
 }
 
 #sidenav-overlay {
@@ -169,6 +172,41 @@ nav a:hover,
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 997;
     display: none;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 3em
+}
+
+.content-wrapper button {
+    min-width: 25%;
+    max-width: 50%;
+}
+
+.content-wrapper h1 {
+    font-size: 6rem;
+    font-weight: var(--font-w-bold);
+}
+
+.content-wrapper ul {
+    list-style-type: none;
+}
+
+.content-wrapper p {
+    color: var(--font-grey);
+    font-weight: var(--font-w-bold);
+    flex-wrap: wrap;
+}
+
+.cooperations {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 
@@ -189,8 +227,10 @@ nav a:hover,
         cursor: pointer;
     }
 
-    .hamburger-menu[aria-expanded="true"] {
+
+    .hamburger-menu[aria-expanded="true"]#hamburger-wrapper {
         background-image: url("./images/icon-close-menu.svg");
+        position: sticky;
     }
 
     .header-links {
@@ -229,6 +269,39 @@ nav a:hover,
 
     .dropdown-item {
         margin-left: 1.5rem;
+    }
+
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2,1fr);
+        grid-auto-flow: dense;
+        text-align: center;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .content-wrapper button {
+        min-width: 50%;
+    }
+
+    .content-wrapper h1 {
+        font-size: 4rem;
+    }
+
+    .content-wrapper p {
+        font-weight: var(--font-w-bold);
+        word-wrap: break-word;
+    }
+
+    #main-picture {
+        grid-row: 1;
     }
 
     nav {
